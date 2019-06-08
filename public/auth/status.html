@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Status</title>
+</head>
+<body>
+  <a href="/auth/edit">Редоктировать фильмы</a>
+  <p><a href="/auth/logout">Разлогинится</a>?</p>
+  <div id="listUsers">
+    <p><strong>Список залогининых пользователей:<strong></strong></p>
+    <ol>
+      <li v-for="user in users">{{user.username}}</li>
+    </ol>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#listUsers',
+      data: {
+        users: []
+      },
+      mounted() {
+        axios
+          .get('/api/v1/users')
+          .then((response) => {
+            this.users = response.data.data;
+          })
+      }
+    });
+  </script>
+</body>
+
+</html

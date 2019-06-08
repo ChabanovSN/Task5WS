@@ -1,0 +1,13 @@
+body{
+    background: rgb(24, 190, 18);
+    
+}
+
+.video iframe  {
+   height: 500px;
+
+}
+.left-list{
+    height: 100%;
+}
+

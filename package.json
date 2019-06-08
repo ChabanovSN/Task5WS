@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "start": "node ./src/server/index.js",
-    "test": "./node_modules/mocha/bin/_mocha"
+    "test": "./node_modules/mocha/bin/_mocha",
+    "devstart": "nodemon ./src/server/index.js"
   },
   "keywords": [],
   "author": "Michael Herman",
   "license": "ISC",
   "devDependencies": {
     "chai": "4.1.1",
-    "mocha": "3.5.0"
+    "mocha": "3.5.0",
+    "nodemon": "^1.11.0"
   }
 }

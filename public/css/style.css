@@ -1,0 +1,28 @@
+body{
+    background: url('../images/back-forest.jpg');
+}
+iframe{
+    width: 95%;
+    height: 95%;
+   
+}
+.left-list{
+    min-height:400px;
+}
+.pointer{
+    cursor: pointer;
+}
+.form-group{
+    width: 500px;
+}
+.white{
+    background: white;
+}
+.log{
+    display: block;
+    float: right;
+}
+.regBtn{
+   float:right;
+    
+}

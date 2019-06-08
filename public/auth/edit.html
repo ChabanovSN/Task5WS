@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Edit</title>
+</head>
+
+<body class="white">
+  <a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">На главную</a>
+  <div class="container" id="app">
+    <div class="row justify-content-center align-items-center">
+      <h3 class="text-center white">Режим редактирование контента</h3>
+      <p>Внимание при добавление ссылки необходимо использовать формат <strong>www.youtube.com/embed/??????</strong>
+        Для этого выберете на сайте www.youtube.com под нужным видео -> поделиться -> встроить -> в коде src= -> ссылка
+      </p>
+    </div>
+    <div class="row pl-3">
+      <div class="form-group">
+        <input type="text" class="form-control" id="search" placeholder="Введите название фильма" v-model="search">
+        <button type="submit" class="btn btn-primary" @click="searchMovies()">Поиск</button>
+        <button type="submit" class="btn btn-primary" @click="searchCansel()">Сброс</button>
+      </div>
+
+    </div>
+    <a href="/auth/create" class="btn btn-outline-success" role="button" aria-pressed="true">Добавить
+      фильм</a>
+    <p v-if="firstmovie" class="white">Описание фильма:<br>
+      Название: {{firstmovie.name}} , Жанр: {{firstmovie.genre}} , Рейтинг: {{firstmovie.rating}}
+    </p>
+    <div class="row">
+      <div class="col-6 left-list">
+        <ul class="list-group" v-for="(mov, index) in  movies">
+          <li class="list-group-item list-group-item-action pointer" @click="selectMovie(index)"
+            :class="{'active': selectMovieIndex === index}">
+            {{mov.name}}           
+            <a href="#" class=" btn btn-outline-danger regBtn" alt="Удалить"><img src="../images/delete-3x.png"></a>
+            <a href="#" class=" btn btn-outline-success regBtn" alt="Правка"><img src="../images/pencil-3x.png"></a>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-6 vidio">
+        <iframe :src=defaultReff>
+        </iframe>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script src="./js/edit.js"></script>
+
+</body>
+
+</html>
