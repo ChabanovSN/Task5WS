@@ -19,7 +19,7 @@
     </div>
     <div class="row pl-3">
       <div class="form-group">
-        <input type="text" class="form-control" id="search" placeholder="Введите название фильма" v-model="search">
+        <input type="text" class="form-control" id="search" placeholder="Введите название видео" v-model="search">
         <button type="submit" class="btn btn-primary" @click="searchMovies()">Поиск</button>
         <button type="submit" class="btn btn-primary" @click="searchCansel()">Сброс</button>
       </div>
@@ -93,7 +93,7 @@
               <p>Внимание при редактировании ссылки необходимо использовать формат
                 <strong>www.youtube.com/embed/??????</strong>
                 Для этого выберете на сайте www.youtube.com под нужным видео ->
-                поделиться -> встроить -> в коде src= -> ссылкассылка(без камычек)
+                поделиться -> встроить -> в коде src= -> ссылкассылка(без кавычек)
               </p>
               <input type="text" class="form-control" id="reff" v-model="firstmovie.reff">
             </div>
@@ -123,7 +123,7 @@
               <p>Внимание при добавлении ссылки необходимо использовать формат
                 <strong>www.youtube.com/embed/??????</strong>
                 Для этого выберете на сайте www.youtube.com под нужным видео ->
-                поделиться -> встроить -> в коде src= -> ссылка(без камычек)
+                поделиться -> встроить -> в коде src= -> ссылка(без кавычек)
               </p>
               <input type="text" class="form-control" placeholder="Ссылка" id="reff" v-model="newmovie.reff">
             </div>
