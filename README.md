@@ -15,7 +15,7 @@ CREATE DATABASE moviesdb_test;
 `knex migrate:latest --env development`
 #
  `knex seed:run --env development`
-# 5) для запуска в деврежиме
+# 5) для запуска в режиме разработки
  npm run devstart
 # url http://localhost:1337
 # 6) Запуск  рабочем режиме
