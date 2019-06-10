@@ -11,9 +11,9 @@
   "author": "Sergey Chabanov",
   "license": "",
   "devDependencies": {
-    "chai": "4.1.1",
+    "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "mocha": "3.5.0",
+    "mocha": "^6.1.4",
     "nodemon": "^1.11.0",
     "koa": "^2.3.0",
     "koa-static": "^5.0.0",

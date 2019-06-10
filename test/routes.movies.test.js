@@ -76,7 +76,7 @@ describe('GET /api/v1/movies', () => {
       .get('/api/v1/movies/9999999')
       .end((err, res) => {
         // there should an error
-        should.exist(err);
+        should.exist(null);
         // there should be a 404 status code
         res.status.should.equal(404);
         // the response should be JSON

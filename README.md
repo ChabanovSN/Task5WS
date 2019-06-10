@@ -13,12 +13,11 @@ CREATE DATABASE moviesdb_test;
 # 3) для создания создания таблиц и наполнения их 
 # первичными данными используйте команды(корневая папка, командная строка):
 `knex migrate:latest --env development`
+#
  `knex seed:run --env development`
-# 4) для запуска тестов команда
-npm test
-# 5) для запуска в режиме дебага  
-SET DEBUG=node-koa-api* & npm run devstart
-url http://localhost:1337
-# 6) Запуск  
+# 5) для запуска в деврежиме
+ npm run devstart
+# url http://localhost:1337
+# 6) Запуск  рабочем режиме
 npm start
-url http://localhost:1337
+# url http://localhost:1337
