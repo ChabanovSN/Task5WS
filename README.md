@@ -19,6 +19,6 @@ nmp test
 # 5) для запуска в режиме дебага  
 SET DEBUG=node-koa-api* & npm run devstart
 url http://localhost:1337
-# 6) Запуска  
+# 6) Запуск  
 npm start
 url http://localhost:1337
