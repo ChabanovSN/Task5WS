@@ -3,14 +3,16 @@ body{
 }
 iframe{
     width: 95%;
-    height: 95%;
-   
+    height: 95%;   
 }
 .left-list{
     min-height:400px;
 }
 .pointer{
     cursor: pointer;
+}
+.modal{
+    display: block;
 }
 .form-group{
     width: 500px;
@@ -23,6 +25,33 @@ iframe{
     float: right;
 }
 .regBtn{
-   float:right;
-    
+   float:right;    
+}
+.model-enter-active,
+.model-leave-active{
+    transition: all .5s;
+}
+.model-enter,
+.model-leave-to{
+    transform:  translateY(-100px);
+  
+}
+
+.fade-enter-active{
+    animation:  .75s fade forwards;
+}
+.fade-leave-active{
+    animation:  .75s fade reverse;
+}
+
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+@keyframes fade {
+    from {
+opacity: 0;
+    }
+    to {
+opacity: .5;
+    }
 }

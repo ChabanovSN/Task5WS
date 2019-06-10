@@ -24,36 +24,25 @@ new Vue({
           password: this.password
         },
         validateStatus: (status) => {
-          return true; 
+          return true;
         },
       }).catch(error => {
         alert('У нас пробемы! Ааааааааа');
       }).then(response => {
-
         if (response.data.status === 'success') {
           this.user = response.data.username;
           this.hidereff = true;
           alert('Вы успешло авторизовались');
-        } else if (response.data.status === 'error_password') {
-          this.hidereff = false;
-          alert('Ваш пароль не верен');
         } else if (response.data.status === 'no_username') {
           this.hidereff = false;
-          alert('Пользователь с таким логином не рарегистрирован');
-        }else if (response.data.status === 'error_bd') {
+          alert('Пользователь  не рарегистрирован');
+        } else if (response.data.status === 'error_bd') {
           this.hidereff = false;
           alert('У нас пробемы! Ааааааааа');
         }
-        
-        // if (response.data.status === 'error_thesame_name') {
-        //   alert('Пользователь с таким именем уже существует');
-        //   window.location = '/auth/register';
-        //  else {
-        //   window.location = '/auth/status';
-        // }
       });
     }
 
   }
-  
+
 });

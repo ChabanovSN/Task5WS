@@ -11,30 +11,27 @@
 
 <body>
   <a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">На главную</a>
-
-
+  
   <div class="container white col-6 col-md-6 pt-5">
-      <div class="row h-100 justify-content-center align-items-center">
-
+    <div class="row h-100 justify-content-center align-items-center">
       <h1>Авторизация</h1>
-     
-    
+
       <div id="login">
-        
         <div class="form-group col-10">
-            <a href="./register.html" class="btn btn-primary btn-lg active regBtn" role="button" aria-pressed="true">Регистрация</a>
+          <a href="./register.html" class="btn btn-primary btn-lg active regBtn" role="button"
+            aria-pressed="true">Регистрация</a>
           <input type="text" class="form-control" id="username" placeholder="Введите логин" v-model="username">
           <input type="password" class="form-control" id="password" placeholder="Введите пароль" v-model="password">
           <button type="submit" class="btn btn-primary" @click="enter()">Вход</button>
         </div>
-        <p>Список зарегистрированных пользователей и доступ к редоктировани контента
+        <p>Список зарегистрированных пользователей и доступ к редaктированию контента
           <br> будет доступен после успешной авторизации</p>
         <div v-if="hidereff">
           <a href="/auth/status">Список зарегистрированных пользователей</a>
           <br>
           <a href="./edit.html">Перейти в режим редактирование контента</a>
         </div>
-    </div>
+      </div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

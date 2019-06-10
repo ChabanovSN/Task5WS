@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="../css/style.css">
-        <title>Registration</title>
-      </head>
-      
-      <body>
-        <a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">На главную</a>
-      
-      
-        <div class="container white col-6 col-md-6 pt-5">
-            <div class="row h-100 justify-content-center align-items-center">
-      
-            <h1>Регистрация</h1>
-           
-          
-            <div id="register">
-              
-              <div class="form-group col-10">
-                  <a href="./login.html" class="btn btn-primary btn-lg active regBtn" role="button" aria-pressed="true">Авторизация</a>
-                <input type="text" class="form-control" id="username" placeholder="Введите логин" v-model="username">
-                <input type="password" class="form-control" id="password" placeholder="Введите пароль" v-model="password">
-                <button type="submit" class="btn btn-primary" @click="enter()">Регистрация</button>
-              </div>
-            </div>
-          </div>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Registration</title>
+</head>
+
+<body>
+  <a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">На главную</a>
+
+
+  <div class="container white col-6 col-md-6 pt-5">
+    <div class="row h-100 justify-content-center align-items-center">
+      <h1>Регистрация</h1>
+
+      <div id="register">
+        <div class="form-group col-10">
+          <a href="./login.html" class="btn btn-primary btn-lg active regBtn" role="button"
+            aria-pressed="true">Авторизация</a>
+          <input type="text" class="form-control" id="username" placeholder="Введите логин" v-model="username">
+          <input type="password" class="form-control" id="password" placeholder="Введите пароль" v-model="password">
+          <button type="submit" class="btn btn-primary" @click="enter()">Регистрация</button>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="js/registr.js"> </script>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/registr.js"> </script>
   <!-- <h1>Регистрация</h1>
   <form action="/auth/register" method="post">
     <p><label>Username: <input type="text" name="username" /></label></p>
     <p><label>Password: <input type="password" name="password" /></label></p>
     <p><button type="submit">Регистрация</button></p>
   </form> -->
- 
+
 </body>
 
 </html>

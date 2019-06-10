@@ -41,7 +41,7 @@ describe('routes : moviesDelete', () => {
           // the JSON response body should have a
           // key-value pair of {"data": 1 movie object}
           res.body.data[0].should.include.keys(
-            'id', 'name', 'genre', 'rating', 'explicit'
+            'id', 'name', 'genre', 'rating','reff'
           );
           // ensure the movie was in fact deleted
           knex('movies').select('*')

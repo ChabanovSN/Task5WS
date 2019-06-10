@@ -16,9 +16,6 @@
   <div class="container" id="app">
     <div class="row justify-content-center align-items-center">
       <h3 class="text-center white">Режим редактирование контента</h3>
-      <p>Внимание при добавление ссылки необходимо использовать формат <strong>www.youtube.com/embed/??????</strong>
-        Для этого выберете на сайте www.youtube.com под нужным видео -> поделиться -> встроить -> в коде src= -> ссылка
-      </p>
     </div>
     <div class="row pl-3">
       <div class="form-group">
@@ -28,8 +25,8 @@
       </div>
 
     </div>
-    <a href="/auth/create" class="btn btn-outline-success" role="button" aria-pressed="true">Добавить
-      фильм</a>
+    <a @click="modelVisabilityCreate = true" class="btn btn-outline-success" role="button" aria-pressed="true">Добавить
+      видео</a>
     <p v-if="firstmovie" class="white">Описание фильма:<br>
       Название: {{firstmovie.name}} , Жанр: {{firstmovie.genre}} , Рейтинг: {{firstmovie.rating}}
     </p>
@@ -38,19 +35,112 @@
         <ul class="list-group" v-for="(mov, index) in  movies">
           <li class="list-group-item list-group-item-action pointer" @click="selectMovie(index)"
             :class="{'active': selectMovieIndex === index}">
-            {{mov.name}}           
-            <a href="#" class=" btn btn-outline-danger regBtn" alt="Удалить"><img src="../images/delete-3x.png"></a>
-            <a href="#" class=" btn btn-outline-success regBtn" alt="Правка"><img src="../images/pencil-3x.png"></a>
+            {{mov.name}}
+            <a @click="modelVisabilityDelete = true" class=" btn btn-outline-danger regBtn" alt="Удалить">
+              <img src="../images/delete-3x.png">
+            </a>
+            <a @click="modelVisabilityUpdate = true" class=" btn btn-outline-success regBtn" alt="Правка"><img
+                src="../images/pencil-3x.png"></a>
           </li>
         </ul>
-
       </div>
       <div class="col-6 vidio">
-        <iframe :src=defaultReff>
-        </iframe>
-
+        <iframe :src=defaultReff> </iframe>
       </div>
     </div>
+    <transition name="model">
+      <!--  окно для удалиния -->
+      <div class="modal fade show" v-if="modelVisabilityDelete" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Вы хотите удалить это видио?</h5>
+              <button @click="modelVisabilityDelete = false" type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ul>
+                <li>Название: <strong>{{firstmovie.name}}</strong></li>
+                <li>Жанр: <strong>{{firstmovie.genre}}</strong></li>
+                <li>Рейтинг: <strong>{{firstmovie.rating}}</strong></li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" @click="deleteMovie">Удалить</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                @click="cancelDelete">Отменить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- окно  для обновления -->
+      <div class="modal fade show" v-if="modelVisabilityUpdate" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Режим редактирование видео: {{firstmovie.name}}</h5>
+              <button @click="modelVisabilityUpdate = false" type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input type="text" class="form-control" id="name" v-model="firstmovie.name">
+              <input type="text" class="form-control" id="genre" v-model="firstmovie.genre">
+              <input type="text" class="form-control" id="rating" v-model="firstmovie.rating">
+              <p>Внимание при редактировании ссылки необходимо использовать формат
+                <strong>www.youtube.com/embed/??????</strong>
+                Для этого выберете на сайте www.youtube.com под нужным видео ->
+                поделиться -> встроить -> в коде src= -> ссылкассылка(без камычек)
+              </p>
+              <input type="text" class="form-control" id="reff" v-model="firstmovie.reff">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" @click="update">Обновить</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                @click="cancelUpdate">Отменить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- окно для создание нового видео -->
+      <div class="modal fade show" v-if="modelVisabilityCreate" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Режим добавлениия видео: {{newmovie.name}}</h5>
+              <button @click="modelVisabilityCreate = false" type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input type="text" class="form-control" placeholder="Название видео" id="name" v-model="newmovie.name">
+              <input type="text" class="form-control" placeholder="Жанре" id="genre" v-model="newmovie.genre">
+              <input type="text" class="form-control" placeholder="Рейтинг" id="rating" v-model="newmovie.rating">
+              <p>Внимание при добавлении ссылки необходимо использовать формат
+                <strong>www.youtube.com/embed/??????</strong>
+                Для этого выберете на сайте www.youtube.com под нужным видео ->
+                поделиться -> встроить -> в коде src= -> ссылка(без камычек)
+              </p>
+              <input type="text" class="form-control" placeholder="Ссылка" id="reff" v-model="newmovie.reff">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" @click="create">Добавить</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                @click="cancelCreate">Отменить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </transition>
+    <transition name="fade">
+      <div class="modal-backdrop fade show " v-if="modelVisabilityDelete"></div>
+      <div class="modal-backdrop fade show " v-else-if="modelVisabilityUpdate"></div>
+      <div class="modal-backdrop fade show " v-else-if="modelVisabilityCreate"></div>
+    </transition>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

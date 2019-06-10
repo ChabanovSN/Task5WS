@@ -1,38 +1,22 @@
-# Building a RESTful API with Koa and Postgres
-
-Project base...
-
-1. Fork/Clone
-1. Install dependencies - `npm install`
-1. Sanity check - `npm start`
-1. Test - `mocha test`
-chai-http@3.0.0
-koa@2.3.0
-npm install axios
-
-
-npm install --save koa-static
-npm install --save koa-mount
-#DB
-pg@7.1.2 
-knex@0.13.0 (Run knex init ) for new folder
-koa-router@7.2.1 
-koa-bodyparser@4.2.0
-
-
-
-
+# Установка клонировать/ скачать и в корневой папке где package.json выполнить команду(корневая папка, командная строка)
+# !!Необходимо наличие Node.js на компьюторе!!
+ npm install
+# для работы с базой данных необходимо:
+# 1)иметь локально Postgres и через psql (к примеру)
+# 2) создать пустю БД для работы 
 CREATE DATABASE moviesdb;
+# 3) создать пустю БД для тестов
 CREATE DATABASE moviesdb_test;
-
+# в качестве доступа к БД у меня естановлен суперпользователь  "postgres" и пароль "root"
+# если у Вас установлены другие права доступа в
+# файле knexfile.js(корневая папка) измените переменные user и password на Ваши
+# 3) для создания создания таблиц и наполнения их 
+#первичными данными используйте команды(корневая папка, командная строка):
  knex migrate:latest --env development
  knex seed:run --env development
-
-#Authorization
-koa-passport@4.0.1
-koa-session@5.5.1
-passport-local@1.0.0
-
-bcryptjs@2.4.3
-
+# 4) для запуска тестов команда
+nmp test
+# 5) для запуска в режиме дебага  url http://localhost:1337
 SET DEBUG=node-koa-api* & npm run devstart
+# 6) Запуска  url http://localhost:1337
+npm start

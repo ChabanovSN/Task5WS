@@ -1,18 +1,29 @@
 {
-  "name": "node-koa-api",
+  "name": "tack5-vue-koa",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./src/server/index.js",
-    "test": "./node_modules/mocha/bin/_mocha",
+    "test": "node ./node_modules/mocha/bin/_mocha",
     "devstart": "nodemon ./src/server/index.js"
   },
   "keywords": [],
-  "author": "Michael Herman",
-  "license": "ISC",
+  "author": "Sergey Chabanov",
+  "license": "",
   "devDependencies": {
     "chai": "4.1.1",
     "mocha": "3.5.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "koa": "^2.3.0",
+    "koa-static": "^5.0.0",
+    "koa-mount":"^4.0.0",
+    "pg":"^7.11.0",
+    "knex":"^0.17.5",
+    "koa-router":"^7.4.0",
+    "koa-bodyparser":"^4.2.1",
+    "koa-passport":"^4.1.3",
+    "koa-session":"^5.12.0",
+    "passport-local":"^1.0.0",
+     "bcryptjs":"^2.4.3"
   }
 }

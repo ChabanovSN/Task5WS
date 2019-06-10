@@ -37,11 +37,11 @@ describe('GET /api/v1/movies', () => {
         res.body.status.should.eql('success');
         // the JSON response body should have a
         // key-value pair of {"data": [3 movie objects]}
-        res.body.data.length.should.eql(3);
+        res.body.data.length.should.eql(5);
         // the first object in the data array should
         // have the right keys
         res.body.data[0].should.include.keys(
-          'id', 'name', 'genre', 'rating', 'explicit'
+          'id', 'name', 'genre', 'rating', 'reff'
         );
         done();
       });
@@ -66,7 +66,7 @@ describe('GET /api/v1/movies', () => {
         // the JSON response body should have a
         // key-value pair of {"data": 1 movie object}
         res.body.data[0].should.include.keys(
-          'id', 'name', 'genre', 'rating', 'explicit'
+          'id', 'name', 'genre', 'rating', 'reff'
         );
         done();
       });
@@ -99,7 +99,7 @@ describe('GET /api/v1/movies', () => {
         name: 'Titanic',
         genre: 'Drama',
         rating: 8,
-        explicit: true
+        reff: 'sDAADa'
       })
       .end((err, res) => {
         // there should be no errors
@@ -115,7 +115,7 @@ describe('GET /api/v1/movies', () => {
         // the JSON response body should have a
         // key-value pair of {"data": 1 movie object}
         res.body.data[0].should.include.keys(
-          'id', 'name', 'genre', 'rating', 'explicit'
+          'id', 'name', 'genre', 'rating', 'reff'
         );
         done();
       });

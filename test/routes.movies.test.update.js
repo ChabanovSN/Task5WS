@@ -1,4 +1,4 @@
-//process.env.NODE_ENV = 'test';
+process.env.NODE_ENV = 'test';
 
 const chai = require('chai');
 const should = chai.should();
@@ -20,7 +20,7 @@ describe('routes : moviesUpdate', () => {
   });
 
   describe('PUT /api/v1/movies', () => {
-    it('should return the movie that was updated', (done) => {
+    it('should return the movie that was updated HERE error', (done) => {
       knex('movies')
       .select('*')
       .then((movie) => {
@@ -43,7 +43,7 @@ describe('routes : moviesUpdate', () => {
           // the JSON response body should have a
           // key-value pair of {"data": 1 movie object}
           res.body.data[0].should.include.keys(
-            'id', 'name', 'genre', 'rating', 'explicit'
+            'id', 'name', 'genre', 'rating', 'reff'
           );
           // ensure the movie was in fact updated
           const newMovieObject = res.body.data[0];
