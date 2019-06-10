@@ -11,9 +11,9 @@ CREATE DATABASE moviesdb_test;
 # если у Вас установлены другие права доступа в
 # файле knexfile.js(корневая папка) измените переменные user и password на Ваши
 # 3) для создания создания таблиц и наполнения их 
-#первичными данными используйте команды(корневая папка, командная строка):
- knex migrate:latest --env development
- knex seed:run --env development
+# первичными данными используйте команды(корневая папка, командная строка):
+`knex migrate:latest --env development`
+ `knex seed:run --env development`
 # 4) для запуска тестов команда
 npm test
 # 5) для запуска в режиме дебага  
