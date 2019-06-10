@@ -15,7 +15,7 @@ CREATE DATABASE moviesdb_test;
  knex migrate:latest --env development
  knex seed:run --env development
 # 4) для запуска тестов команда
-nmp test
+npm test
 # 5) для запуска в режиме дебага  
 SET DEBUG=node-koa-api* & npm run devstart
 url http://localhost:1337
